@@ -3,7 +3,7 @@ let addNewIntJobs = document.getElementById('addNewIntJobs');
 let addNewRejectedJobs = document.getElementById('addNewRejectedJobs');
 let noIntJob = document.querySelector('#interviwedJobs .text-center');
 let noRejectedJob = document.querySelector('#rejectedJobs .text-center');
-let totalJobs = document.getElementById('totalJobs')
+// let totalJobs = document.getElementsByClassName('totalJobs')
 let mainInterviewedJobs = document.getElementById('mainInterviewedJobs')
 let mainRejectedJobs = document.getElementById('mainRejectedJobs')
 let availableJobs = document.getElementById('availableJobs')
@@ -12,9 +12,13 @@ let interviewBtn = document.getElementById('interviewBtn')
 let rejectedBtn = document.getElementById('rejectedBtn')
 let interviwedJobs = document.getElementById('interviwedJobs')
 let rejectedJobs = document.getElementById('rejectedJobs')
+let outOfJobs = document.getElementById('outOfJobs')
 
 // add total jobs available
-totalJobs.innerText = availableJobs.children.length
+const totalJobs = document.getElementsByClassName('totalJobs');
+for (const job of totalJobs) {
+    job.innerText = availableJobs.children.length;
+}
 
 // function to show which btns clicked of 3
 function btnControll(id) {
@@ -35,14 +39,33 @@ function showJobs(id) {
     availableJobs.classList.add('hidden')
     interviwedJobs.classList.add('hidden')
     rejectedJobs.classList.add('hidden')
+    outOfJobs.classList.add('hidden')
+
+
 
     // show clicked section's jobs
     const selected = document.getElementById(id)
     selected.classList.remove('hidden')
+    if (id !== 'availableJobs') {
+        outOfJobs.classList.remove('hidden')
+    }
+    if (id == 'interviwedJobs') {
+        interviewJobCount()
+    }
+    else if (id == 'rejectedJobs') {
+        rejectJobCount()
+    }
 }
 
 let addInterviewedJobs = [];
 let addRejectedJobs = [];
+function interviewJobCount() {
+    document.getElementById('numOutOfJobs').innerText = addInterviewedJobs.length;
+}
+
+function rejectJobCount() {
+    document.getElementById('numOutOfJobs').innerText = addRejectedJobs.length;
+}
 
 document.querySelector('main').addEventListener('click', function (event) {
 
@@ -69,6 +92,9 @@ document.querySelector('main').addEventListener('click', function (event) {
         }
         addRejectedJobs = addRejectedJobs.filter(item => item.jobTitle != cardInfo.jobTitle)
         renderaddInterviewedJobs()
+        // function interviewJobCount() {
+        //     document.getElementById('numOutOfJobs').innerText = addInterviewedJobs.children.length;
+        // }
         renderaddRejectedJobs()
 
 
@@ -96,6 +122,10 @@ document.querySelector('main').addEventListener('click', function (event) {
         }
         addInterviewedJobs = addInterviewedJobs.filter(item => item.jobTitle != cardInfo.jobTitle)
         renderaddRejectedJobs()
+        //     // function rejectJobCount() {
+        //     //     document.getElementById('numOutOfJobs').innerText = addNewRejectedJobs.children.length;
+        // }
+
         renderaddInterviewedJobs()
 
     }
