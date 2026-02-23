@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Job Application Tracker</title>
+
+    <!-- DaisyUL and Tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- fontawsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <header class="w-[80%] mx-auto mt-7">
+        <div>
+            <h1 class="text-2xl font-bold">Job Application Tracker</h1>
+            <div class="grid grid-cols-3 mt-3">
+                <div class="">
+                    <p>Total <br> <span id="totalJobs" class="font-bold">0</span></p>
+                </div>
+                <div class="">
+                    <p>Interview <br> <span class="font-bold text-green-500">0</span></p>
+                </div>
+                <div class="">
+                    <p>Rejected <br> <span class="font-bold text-red-500">0</span></p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="w-[80%] mx-auto mt-7">
+        <h1 class="font-bold">Available Jobs</h1>
+        <div class="flex gap-3 mt-2">
+            <div>
+                <button onclick="btnControll('allBtn') , showJobs('availableJobs')" id="allBtn"
+                    class="btn  bg-blue-500 text-white px-7">All</button>
+            </div>
+            <div>
+                <button onclick="btnControll('interviewBtn') , showJobs('interviwedJobs')" id="interviewBtn"
+                    class="btn">Interview</button>
+            </div>
+            <div>
+                <button onclick="btnControll('rejectedBtn') , showJobs('rejectedJobs')" id="rejectedBtn"
+                    class="btn ">Rejected</button>
+            </div>
+        </div>
+
+        <!-- intewviewed jobs -->
+        <section>
+            <div id="interviwedJobs" class=" space-y-15 hidden">
+                <div class="text-center p-40 ">
+                    <i class="fa-regular fa-file-lines text-5xl text-blue-400"></i>
+                    <h1 class="font-bold">No jobs available</h1>
+                    <p class="text-black/70">Check back soon for new job opportunities</p>
+                </div>
+                <div id="addNewIntJobs" class="flex justify-between p-4 rounded hover:bg-gray-200">
+
+                </div>
+            </div>
+        </section>
+
+        <!-- rejected jobs -->
+        <section>
+            <div id="rejectedJobs" class=" space-y-15 hidden">
+                <div class="text-center p-40 ">
+                    <i class="fa-regular fa-file-lines text-5xl text-blue-400"></i>
+                    <h1 class="font-bold">No jobs available</h1>
+                    <p class="text-black/70">Check back soon for new job opportunities</p>
+                </div>
+            </div>
+        </section>
+        <!-- Available Jobs -->
+        <section>
+            <div id="availableJobs" class=" space-y-15">
+                <!-- firstJob -->
+                <div class="flex justify-between p-4 rounded hover:bg-gray-200">
+                    <div class="space-y-5 ">
+                        <h1 class="font-bold mt-5">Mobile First Corp</h1>
+                        <p class="text-black/70">React Native Developer</p>
+                        <p class="text-black/70">Remote • Full-time • $130,000 - $175,000</p>
+                        <button class="btn btn-active">NOT APPLIED</button>
+                        <p class="text-black/70">Build cross-platform mobile applications using React Native. Work on
+                            products
+                            used by millions of
+                            users worldwide.</p>
+                        <div class="flex gap-2">
+                            <div>
+                                <button
+                                    class="intSelectBtn btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>
+                            </div>
+                            <div>
+                                <button class="btn btn-active text-red-500 border-2 border-red-500">REJECTED</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <a role="button" class="btn"> <i class="fa-regular fa-trash-can"></i></a>
+                    </div>
+                </div>
+                <!-- secondJob -->
+                <div class="flex justify-between p-4 rounded hover:bg-gray-200">
+                    <div class="space-y-5 ">
+                        <h1 class="font-bold mt-5">Mobile First Corp</h1>
+                        <p class="text-black/70">React Native Developer</p>
+                        <p class="text-black/70">Remote • Full-time • $130,000 - $175,000</p>
+                        <button class="btn btn-active">NOT APPLIED</button>
+                        <p class="text-black/70">Build cross-platform mobile applications using React Native. Work on
+                            products
+                            used by millions of
+                            users worldwide.</p>
+                        <div class="flex gap-2">
+                            <div>
+                                <button
+                                    class="btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>
+                            </div>
+                            <div>
+                                <button class="btn btn-active text-red-500 border-2 border-red-500">REJECTED</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <a role="button" class="btn"> <i class="fa-regular fa-trash-can"></i></a>
+                    </div>
+                </div>
+                <!-- thirdJob -->
+                <div class="flex justify-between p-4 rounded hover:bg-gray-200">
+                    <div class="space-y-5 ">
+                        <h1 class="font-bold mt-5">Mobile First Corp</h1>
+                        <p class="text-black/70">React Native Developer</p>
+                        <p class="text-black/70">Remote • Full-time • $130,000 - $175,000</p>
+                        <button class="btn btn-active">NOT APPLIED</button>
+                        <p class="text-black/70">Build cross-platform mobile applications using React Native. Work on
+                            products
+                            used by millions of
+                            users worldwide.</p>
+                        <div class="flex gap-2">
+                            <div>
+                                <button
+                                    class="btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>
+                            </div>
+                            <div>
+                                <button class="btn btn-active text-red-500 border-2 border-red-500">REJECTED</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <a role="button" class="btn"> <i class="fa-regular fa-trash-can"></i></a>
+                    </div>
+                </div>
+                <!-- fourthJob -->
+                <div class="flex justify-between p-4 rounded hover:bg-gray-200">
+                    <div class="space-y-5 ">
+                        <h1 class="font-bold mt-5">Mobile First Corp</h1>
+                        <p class="text-black/70">React Native Developer</p>
+                        <p class="text-black/70">Remote • Full-time • $130,000 - $175,000</p>
+                        <button class="btn btn-active">NOT APPLIED</button>
+                        <p class="text-black/70">Build cross-platform mobile applications using React Native. Work on
+                            products
+                            used by millions of
+                            users worldwide.</p>
+                        <div class="flex gap-2">
+                            <div>
+                                <button
+                                    class="btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>
+                            </div>
+                            <div>
+                                <button class="btn btn-active text-red-500 border-2 border-red-500">REJECTED</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <a role="button" class="btn"> <i class="fa-regular fa-trash-can"></i></a>
+                    </div>
+                </div>
+                <!-- fifthJob -->
+                <div class="flex justify-between p-4 rounded hover:bg-gray-200">
+                    <div class="space-y-5 ">
+                        <h1 class="font-bold mt-5">Mobile First Corp</h1>
+                        <p class="text-black/70">React Native Developer</p>
+                        <p class="text-black/70">Remote • Full-time • $130,000 - $175,000</p>
+                        <button class="btn btn-active">NOT APPLIED</button>
+                        <p class="text-black/70">Build cross-platform mobile applications using React Native. Work on
+                            products
+                            used by millions of
+                            users worldwide.</p>
+                        <div class="flex gap-2">
+                            <div>
+                                <button
+                                    class="btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>
+                            </div>
+                            <div>
+                                <button class="btn btn-active text-red-500 border-2 border-red-500">REJECTED</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <a role="button" class="btn"> <i class="fa-regular fa-trash-can"></i></a>
+                    </div>
+                </div>
+                <!-- sixthJob -->
+                <div class="flex justify-between p-4 rounded hover:bg-gray-200">
+                    <div class="space-y-5 ">
+                        <h1 class="font-bold mt-5">Mobile First Corp</h1>
+                        <p class="text-black/70">React Native Developer</p>
+                        <p class="text-black/70">Remote • Full-time • $130,000 - $175,000</p>
+                        <button class="btn btn-active">NOT APPLIED</button>
+                        <p class="text-black/70">Build cross-platform mobile applications using React Native. Work on
+                            products
+                            used by millions of
+                            users worldwide.</p>
+                        <div class="flex gap-2">
+                            <div>
+                                <button
+                                    class="btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>
+                            </div>
+                            <div>
+                                <button class="btn btn-active text-red-500 border-2 border-red-500">REJECTED</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <a role="button" class="btn"> <i class="fa-regular fa-trash-can"></i></a>
+                    </div>
+                </div>
+                <!-- seventhJob -->
+                <div class="flex justify-between p-4 rounded hover:bg-gray-200">
+                    <div class="space-y-5 ">
+                        <h1 class="font-bold mt-5">Mobile First Corp</h1>
+                        <p class="text-black/70">React Native Developer</p>
+                        <p class="text-black/70">Remote • Full-time • $130,000 - $175,000</p>
+                        <button class="btn btn-active">NOT APPLIED</button>
+                        <p class="text-black/70">Build cross-platform mobile applications using React Native. Work on
+                            products
+                            used by millions of
+                            users worldwide.</p>
+                        <div class="flex gap-2">
+                            <div>
+                                <button
+                                    class="btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>
+                            </div>
+                            <div>
+                                <button class="btn btn-active text-red-500 border-2 border-red-500">REJECTED</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <a role="button" class="btn"> <i class="fa-regular fa-trash-can"></i></a>
+                    </div>
+                </div>
+                <!-- eighthJob -->
+                <div class="flex justify-between p-4 rounded hover:bg-gray-200">
+                    <div class="space-y-5 ">
+                        <h1 class="font-bold mt-5">Mobile First Corp</h1>
+                        <p class="text-black/70">React Native Developer</p>
+                        <p class="text-black/70">Remote • Full-time • $130,000 - $175,000</p>
+                        <button class="btn btn-active">NOT APPLIED</button>
+                        <p class="text-black/70">Build cross-platform mobile applications using React Native. Work on
+                            products
+                            used by millions of
+                            users worldwide.</p>
+                        <div class="flex gap-2">
+                            <div>
+                                <button
+                                    class="btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>
+                            </div>
+                            <div>
+                                <button class="btn btn-active text-red-500 border-2 border-red-500">REJECTED</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <a role="button" class="btn"> <i class="fa-regular fa-trash-can"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="style.js"></script>
+</body>
+
+</html>
