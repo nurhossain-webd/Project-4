@@ -41,7 +41,7 @@ function renderIntJobsDiv() {
 }
 document.querySelector('main').addEventListener('click', function (event) {
     if (event.target.classList.contains('intSelectBtn')) {
-        const jobCard = event.target.parentNode.parentNode.parentNode.parentNode;
+        const jobCard = event.target.parentNode.parentNode.parentNode.parentNode.parentNode;
         const html = jobCard.innerHTML;
         if (!addInterviewedJobs.includes(html)) {
             addInterviewedJobs.push(html);
