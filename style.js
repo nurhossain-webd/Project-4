@@ -1,6 +1,7 @@
 // get the element by id name
 let totalJobs = document.getElementById('totalJobs')
 let mainInterviewedJobs = document.getElementById('mainInterviewedJobs')
+let mainRejectedJobs = document.getElementById('mainRejectedJobs')
 let availableJobs = document.getElementById('availableJobs')
 let allBtn = document.getElementById('allBtn')
 let interviewBtn = document.getElementById('interviewBtn')
@@ -62,12 +63,12 @@ document.querySelector('main').addEventListener('click', function (event) {
         if (!jobExist) {
             addInterviewedJobs.push(cardInfo)
         }
+
         addRejectedJobs = addRejectedJobs.filter(item => item.jobTitle != cardInfo.jobTitle)
         renderaddInterviewedJobs()
         renderaddRejectedJobs()
 
-        // add total interviewed jobs available
-        mainInterviewedJobs.innerText = addInterviewedJobs.length
+
     }
     if (event.target.classList.contains('rejectMarkBtn')) {
         const jobCard = event.target.parentNode.parentNode.parentNode.parentNode.parentNode;
@@ -90,11 +91,12 @@ document.querySelector('main').addEventListener('click', function (event) {
         if (!jobExist) {
             addRejectedJobs.push(cardInfo)
         }
+
+
         addInterviewedJobs = addInterviewedJobs.filter(item => item.jobTitle != cardInfo.jobTitle)
         renderaddRejectedJobs()
         renderaddInterviewedJobs()
-        // add total interviewed jobs available
-        mainInterviewedJobs.innerText = addInterviewedJobs.length
+
     }
 
 })
@@ -134,7 +136,10 @@ function renderaddInterviewedJobs() {
         `
         interviwedJobs.appendChild(div)
 
+
     }
+    // add total interviewed jobs available
+    mainInterviewedJobs.innerText = addInterviewedJobs.length
 }
 function renderaddRejectedJobs() {
     rejectedJobs.innerHTML = ''
@@ -172,8 +177,11 @@ function renderaddRejectedJobs() {
         rejectedJobs.appendChild(div)
 
     }
-}
+    // add total Rejected jobs available
+    mainRejectedJobs.innerText = addRejectedJobs.length
 
+
+}
 
 // // Interviewed Job arry and render function
 // let addInterviewedJobs = [];
