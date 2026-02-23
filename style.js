@@ -1,4 +1,8 @@
 // get the element by id name
+let addNewIntJobs = document.getElementById('addNewIntJobs');
+let addNewRejectedJobs = document.getElementById('addNewRejectedJobs');
+let noIntJob = document.querySelector('#interviwedJobs .text-center');
+let noRejectedJob = document.querySelector('#rejectedJobs .text-center');
 let totalJobs = document.getElementById('totalJobs')
 let mainInterviewedJobs = document.getElementById('mainInterviewedJobs')
 let mainRejectedJobs = document.getElementById('mainRejectedJobs')
@@ -99,82 +103,84 @@ document.querySelector('main').addEventListener('click', function (event) {
 })
 
 function renderaddInterviewedJobs() {
-    interviwedJobs.innerHTML = ''
+    addNewIntJobs.innerHTML = '';
 
-    for (let interviewedJob of addInterviewedJobs) {
-        let div = document.createElement('div');
-        div.className = 'space-y-15'
-        div.innerHTML = `
-        <div  class="flex justify-between p-4 rounded hover:bg-gray-200">
-                        <div class="space-y-5 ">
-                            <h1 class="jobTitle font-bold mt-5">${interviewedJob.jobTitle}</h1>
-                            <p class="text-black/70 jobRole">${interviewedJob.jobRole}</p>
-                            <p class="text-black/70 jobType">${interviewedJob.jobType}</p>
-                            <div class="statusBtn ">
-                                <button class="btn btn-active">${interviewedJob.statusBtn}</button>
-                            </div>
+    if (addInterviewedJobs.length === 0) {
+        noIntJob.classList.remove('hidden');
+    } else {
+        noIntJob.classList.add('hidden');
 
-                            <p class="text-black/70 jobDescription">${interviewedJob.jobDescription}</p>
-                            <div class="flex gap-2">
-                                <div>
-                                    <button
-                                        class="intSelectBtn btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>
-                                </div>
-                                <div>
-                                    <button
-                                        class="rejectMarkBtn btn btn-active text-red-500 border-2 border-red-500">REJECTED</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <a role="button" class="btn"> <i class="fa-regular fa-trash-can"></i></a>
-                        </div>
-                    </div>
-        `
-        interviwedJobs.appendChild(div)
+        for (let interviewedJob of addInterviewedJobs) {
+            let div = document.createElement('div');
+            div.className = 'space-y-15';
+            div.innerHTML = `
+        <div class="flex justify-between p-4 rounded hover:bg-gray-200">
+          <div class="space-y-5 ">
+            <h1 class="jobTitle font-bold mt-5">${interviewedJob.jobTitle}</h1>
+            <p class="text-black/70 jobRole">${interviewedJob.jobRole}</p>
+            <p class="text-black/70 jobType">${interviewedJob.jobType}</p>
 
+            <div class="statusBtn">
+              <button class="btn btn-active" disabled>${interviewedJob.statusBtn}</button>
+            </div>
+
+            <p class="text-black/70 jobDescription">${interviewedJob.jobDescription}</p>
+
+            <div class="flex gap-2">
+              <button class="intSelectBtn btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>
+              <button class="rejectMarkBtn btn btn-active text-red-500 border-2 border-red-500">REJECTED</button>
+            </div>
+          </div>
+          <div>
+            <a role="button" class="btn"><i class="fa-regular fa-trash-can"></i></a>
+          </div>
+        </div>
+      `;
+            addNewIntJobs.appendChild(div);
+        }
     }
-    // add total interviewed jobs available
-    mainInterviewedJobs.innerText = addInterviewedJobs.length
+
+    mainInterviewedJobs.innerText = addInterviewedJobs.length;
 }
 function renderaddRejectedJobs() {
-    rejectedJobs.innerHTML = ''
+    addNewRejectedJobs.innerHTML = '';
 
-    for (let rejectedJob of addRejectedJobs) {
-        let div = document.createElement('div');
-        div.className = 'space-y-15'
-        div.innerHTML = `
-        <div  class="flex justify-between p-4 rounded hover:bg-gray-200">
-                        <div class="space-y-5 ">
-                            <h1 class="jobTitle font-bold mt-5">${rejectedJob.jobTitle}</h1>
-                            <p class="text-black/70 jobRole">${rejectedJob.jobRole}</p>
-                            <p class="text-black/70 jobType">${rejectedJob.jobType}</p>
-                            <div class="statusBtn ">
-                                <button class="btn btn-active">${rejectedJob.statusBtn}</button>
-                            </div>
+    if (addRejectedJobs.length === 0) {
+        noRejectedJob.classList.remove('hidden');
+    } else {
+        noRejectedJob.classList.add('hidden');
 
-                            <p class="text-black/70 jobDescription">${rejectedJob.jobDescription}</p>
-                            <div class="flex gap-2">
-                                <div>
-                                    <button
-                                        class="intSelectBtn btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>
-                                </div>
-                                <div>
-                                    <button
-                                        class="rejectMarkBtn btn btn-active text-red-500 border-2 border-red-500">REJECTED</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <a role="button" class="btn"> <i class="fa-regular fa-trash-can"></i></a>
-                        </div>
-                    </div>
-        `
-        rejectedJobs.appendChild(div)
+        for (let rejectedJob of addRejectedJobs) {
+            let div = document.createElement('div');
+            div.className = 'space-y-15';
+            div.innerHTML = `
+        <div class="flex justify-between p-4 rounded hover:bg-gray-200">
+          <div class="space-y-5 ">
+            <h1 class="jobTitle font-bold mt-5">${rejectedJob.jobTitle}</h1>
+            <p class="text-black/70 jobRole">${rejectedJob.jobRole}</p>
+            <p class="text-black/70 jobType">${rejectedJob.jobType}</p>
 
+            <div class="statusBtn">
+              <button class="btn btn-active" disabled>${rejectedJob.statusBtn}</button>
+            </div>
+
+            <p class="text-black/70 jobDescription">${rejectedJob.jobDescription}</p>
+
+            <div class="flex gap-2">
+              <button class="intSelectBtn btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>
+              <button class="rejectMarkBtn btn btn-active text-red-500 border-2 border-red-500">REJECTED</button>
+            </div>
+          </div>
+          <div>
+            <a role="button" class="btn"><i class="fa-regular fa-trash-can"></i></a>
+          </div>
+        </div>
+      `;
+            addNewRejectedJobs.appendChild(div);
+        }
     }
-    // add total interviewed jobs available
-    mainRejectedJobs.innerText = addRejectedJobs.length
+
+    mainRejectedJobs.innerText = addRejectedJobs.length;
 }
 // add total interviewed jobs available
 mainRejectedJobs.innerText = addRejectedJobs.length
