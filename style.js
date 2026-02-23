@@ -59,11 +59,10 @@ document.querySelector('main').addEventListener('click', function (event) {
             jobDescription
         }
         const jobExist = addInterviewedJobs.find(item => item.jobTitle == cardInfo.jobTitle)
-        jobCard.querySelector('.statusBtn ').innerText = 'INTERVIEW'
+
         if (!jobExist) {
             addInterviewedJobs.push(cardInfo)
         }
-
         addRejectedJobs = addRejectedJobs.filter(item => item.jobTitle != cardInfo.jobTitle)
         renderaddInterviewedJobs()
         renderaddRejectedJobs()
@@ -91,8 +90,6 @@ document.querySelector('main').addEventListener('click', function (event) {
         if (!jobExist) {
             addRejectedJobs.push(cardInfo)
         }
-
-
         addInterviewedJobs = addInterviewedJobs.filter(item => item.jobTitle != cardInfo.jobTitle)
         renderaddRejectedJobs()
         renderaddInterviewedJobs()
@@ -136,7 +133,6 @@ function renderaddInterviewedJobs() {
         `
         interviwedJobs.appendChild(div)
 
-
     }
     // add total interviewed jobs available
     mainInterviewedJobs.innerText = addInterviewedJobs.length
@@ -177,11 +173,12 @@ function renderaddRejectedJobs() {
         rejectedJobs.appendChild(div)
 
     }
-    // add total Rejected jobs available
+    // add total interviewed jobs available
     mainRejectedJobs.innerText = addRejectedJobs.length
-
-
 }
+// add total interviewed jobs available
+mainRejectedJobs.innerText = addRejectedJobs.length
+
 
 // // Interviewed Job arry and render function
 // let addInterviewedJobs = [];
