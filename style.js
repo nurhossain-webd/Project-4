@@ -39,9 +39,15 @@ const interviwedJobsDiv = document.getElementById('addNewIntJobs');
 function renderIntJobsDiv() {
     interviwedJobsDiv.innerHTML = addInterviewedJobs.join('');
 }
+
+// function for main part btn functionality
 document.querySelector('main').addEventListener('click', function (event) {
     if (event.target.classList.contains('intSelectBtn')) {
         const jobCard = event.target.parentNode.parentNode.parentNode.parentNode.parentNode;
+
+        jobCard.querySelector('.statusBtn').innerHTML = `<button
+                                        class="intSelectBtn btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>`;
+
         const html = jobCard.innerHTML;
         if (!addInterviewedJobs.includes(html)) {
             addInterviewedJobs.push(html);
