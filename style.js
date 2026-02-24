@@ -15,10 +15,12 @@ let rejectedJobs = document.getElementById('rejectedJobs')
 let outOfJobs = document.getElementById('outOfJobs')
 
 // add total jobs available
-const totalJobs = document.getElementsByClassName('totalJobs');
-for (const job of totalJobs) {
-    job.innerText = availableJobs.children.length;
+function totalJobsCount() {
+    const total = availableJobs.querySelectorAll('.jobCard').length;
+    const totalJobs = document.getElementsByClassName('totalJobs');
+    for (const job of totalJobs) job.innerText = total;
 }
+totalJobsCount();
 
 // function to show which btns clicked of 3
 function btnControll(id) {
@@ -59,6 +61,8 @@ function showJobs(id) {
 
 let addInterviewedJobs = [];
 let addRejectedJobs = [];
+
+// Count number of job out of total job for each section
 function interviewJobCount() {
     document.getElementById('numOutOfJobs').innerText = addInterviewedJobs.length;
 }
@@ -66,6 +70,18 @@ function interviewJobCount() {
 function rejectJobCount() {
     document.getElementById('numOutOfJobs').innerText = addRejectedJobs.length;
 }
+
+// implimenting delete btn functionality
+document.querySelector('main').addEventListener('click', function (event) {
+    const trash = event.target.closest('.deleteBtn');
+    if (!trash) return;
+
+    const card = trash.closest('.jobCard');
+    if (!card) return;
+
+    card.remove();
+    totalJobsCount(); // updates Total Available Jobs
+});
 
 document.querySelector('main').addEventListener('click', function (event) {
 
@@ -144,7 +160,7 @@ function renderaddInterviewedJobs() {
             let div = document.createElement('div');
             div.className = 'space-y-15';
             div.innerHTML = `
-        <div class="flex justify-between p-4 rounded hover:bg-gray-200">
+        <div class="jobCard flex justify-between p-4 rounded hover:bg-gray-200">
           <div class="space-y-5 ">
             <h1 class="jobTitle font-bold mt-5">${interviewedJob.jobTitle}</h1>
             <p class="text-black/70 jobRole">${interviewedJob.jobRole}</p>
@@ -162,7 +178,7 @@ function renderaddInterviewedJobs() {
             </div>
           </div>
           <div>
-            <a role="button" class="btn"><i class="fa-regular fa-trash-can"></i></a>
+            <a role="button" class="btn deleteBtn"><i class="fa-regular fa-trash-can"></i></a>
           </div>
         </div>
       `;
@@ -184,7 +200,7 @@ function renderaddRejectedJobs() {
             let div = document.createElement('div');
             div.className = 'space-y-15';
             div.innerHTML = `
-        <div class="flex justify-between p-4 rounded hover:bg-gray-200">
+        <div class="jobCard flex justify-between p-4 rounded hover:bg-gray-200">
           <div class="space-y-5 ">
             <h1 class="jobTitle font-bold mt-5">${rejectedJob.jobTitle}</h1>
             <p class="text-black/70 jobRole">${rejectedJob.jobRole}</p>
@@ -202,14 +218,14 @@ function renderaddRejectedJobs() {
             </div>
           </div>
           <div>
-            <a role="button" class="btn"><i class="fa-regular fa-trash-can"></i></a>
+            <a role="button" class="btn deleteBtn"><i class="fa-regular fa-trash-can"></i></a>
           </div>
         </div>
       `;
             addNewRejectedJobs.appendChild(div);
         }
     }
-
+    // add total interviewed jobs available
     mainRejectedJobs.innerText = addRejectedJobs.length;
 }
 // add total interviewed jobs available
