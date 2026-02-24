@@ -18,10 +18,10 @@
 </head>
 
 <body>
-    <header class="w-[80%] mx-auto mt-7">
+    <header class="w-full max-w-5xl mx-auto px-4 mt-7">
         <div>
             <h1 class="text-2xl font-bold">Job Application Tracker</h1>
-            <div class="grid grid-cols-3 mt-3">
+            <div class="grid grid-cols-1 sm:grid-cols-3 mt-3 gap-4">
                 <div class="">
                     <p>Total <br> <span id="totalJobs" class="totalJobs font-bold">0</span></p>
                 </div>
@@ -34,8 +34,8 @@
             </div>
         </div>
     </header>
-    <main class="w-[80%] mx-auto mt-7">
-        <div class="flex justify-between">
+    <main class="w-full max-w-5xl mx-auto px-4 mt-7">
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
             <div>
                 <h1 class="font-bold">Available Jobs</h1>
             </div>
@@ -49,18 +49,18 @@
             </div>
         </div>
 
-        <div class="flex gap-3 mt-2">
+        <div class="flex flex-wrap gap-3 mt-2">
             <div>
                 <button onclick="btnControll('allBtn') , showJobs('availableJobs')" id="allBtn"
-                    class="btn  bg-blue-500 text-white px-7">All</button>
+                    class="btn transition active:scale-95  bg-blue-500 text-white px-7">All</button>
             </div>
             <div>
                 <button onclick="btnControll('interviewBtn') , showJobs('interviwedJobs')" id="interviewBtn"
-                    class="btn">Interview</button>
+                    class="btn transition active:scale-95">Interview</button>
             </div>
             <div>
                 <button onclick="btnControll('rejectedBtn') , showJobs('rejectedJobs')" id="rejectedBtn"
-                    class="btn ">Rejected</button>
+                    class="btn transition active:scale-95 ">Rejected</button>
             </div>
         </div>
 
@@ -93,10 +93,10 @@
             </div>
         </section>
         <!-- Available Jobs -->
-        <section>
+        <section class="mt-7">
             <div id="availableJobs" class=" space-y-15">
                 <!-- firstJob -->
-                <div class="jobCard flex justify-between p-4 rounded hover:bg-gray-200">
+                <div class="jobCard flex flex-col sm:flex-row sm:justify-between gap-4 p-4 rounded hover:bg-gray-200">
                     <div class="space-y-5 ">
                         <h1 class="jobTitle font-bold mt-5">Mobile First Corp</h1>
                         <p class="text-black/70 jobRole">React Native Developer</p>
@@ -110,11 +110,11 @@
                         <div class="flex gap-2">
                             <div>
                                 <button
-                                    class="intSelectBtn btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>
+                                    class="intSelectBtn btn btn-active transition active:scale-95 text-green-500 border-2 border-green-500">INTERVIEW</button>
                             </div>
                             <div>
                                 <button
-                                    class="rejectMarkBtn btn btn-active text-red-500 border-2 border-red-500">REJECTED</button>
+                                    class="rejectMarkBtn btn btn-active transition active:scale-95 text-red-500 border-2 border-red-500">REJECTED</button>
                             </div>
                         </div>
                     </div>
@@ -126,7 +126,8 @@
 
                 <!-- secondJob -->
                 <div>
-                    <div class="jobCard flex justify-between p-4 rounded hover:bg-gray-200">
+                    <div
+                        class="jobCard flex flex-col sm:flex-row sm:justify-between gap-4 p-4 rounded hover:bg-gray-200">
                         <div class="space-y-5 ">
                             <h1 class="jobTitle font-bold mt-5">WebFlow Agency</h1>
                             <p class="text-black/70 jobRole">Web Designer & Developer</p>
@@ -139,11 +140,11 @@
                             <div class="flex gap-2">
                                 <div>
                                     <button
-                                        class="intSelectBtn btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>
+                                        class="intSelectBtn btn btn-active transition active:scale-95 text-green-500 border-2 border-green-500">INTERVIEW</button>
                                 </div>
                                 <div>
                                     <button
-                                        class="rejectMarkBtn btn btn-active text-red-500 border-2 border-red-500">REJECTED</button>
+                                        class="rejectMarkBtn btn btn-active transition active:scale-95 text-red-500 border-2 border-red-500">REJECTED</button>
                                 </div>
                             </div>
                         </div>
@@ -155,7 +156,8 @@
 
                 <!-- thirdJob -->
                 <div>
-                    <div class="jobCard flex justify-between p-4 rounded hover:bg-gray-200">
+                    <div
+                        class="jobCard flex flex-col sm:flex-row sm:justify-between gap-4 p-4 rounded hover:bg-gray-200">
                         <div class="space-y-5 ">
                             <h1 class="jobTitle font-bold mt-5">DataViz Solutions</h1>
                             <p class="text-black/70 jobRole">Data Visualization Specialist</p>
@@ -170,11 +172,11 @@
                             <div class="flex gap-2">
                                 <div>
                                     <button
-                                        class="intSelectBtn btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>
+                                        class="intSelectBtn btn btn-active transition active:scale-95 text-green-500 border-2 border-green-500">INTERVIEW</button>
                                 </div>
                                 <div>
                                     <button
-                                        class="rejectMarkBtn btn btn-active text-red-500 border-2 border-red-500">REJECTED</button>
+                                        class="rejectMarkBtn btn btn-active transition active:scale-95 text-red-500 border-2 border-red-500">REJECTED</button>
                                 </div>
                             </div>
                         </div>
@@ -186,7 +188,8 @@
 
                 <!-- fourthJob -->
                 <div>
-                    <div class="jobCard flex justify-between p-4 rounded hover:bg-gray-200">
+                    <div
+                        class="jobCard flex flex-col sm:flex-row sm:justify-between gap-4 p-4 rounded hover:bg-gray-200">
                         <div class="space-y-5 ">
                             <h1 class="jobTitle font-bold mt-5">CloudFirst Inc</h1>
                             <p class="text-black/70 jobRole">Backend Developer</p>
@@ -201,11 +204,11 @@
                             <div class="flex gap-2">
                                 <div>
                                     <button
-                                        class="intSelectBtn btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>
+                                        class="intSelectBtn btn btn-active transition active:scale-95 text-green-500 border-2 border-green-500">INTERVIEW</button>
                                 </div>
                                 <div>
                                     <button
-                                        class="rejectMarkBtn btn btn-active text-red-500 border-2 border-red-500">REJECTED</button>
+                                        class="rejectMarkBtn btn btn-active transition active:scale-95 text-red-500 border-2 border-red-500">REJECTED</button>
                                 </div>
                             </div>
                         </div>
@@ -217,7 +220,8 @@
 
                 <!-- fifthJob -->
                 <div>
-                    <div class="jobCard flex justify-between p-4 rounded hover:bg-gray-200">
+                    <div
+                        class="jobCard flex flex-col sm:flex-row sm:justify-between gap-4 p-4 rounded hover:bg-gray-200">
                         <div class="space-y-5 ">
                             <h1 class="jobTitle font-bold mt-5">Innovation Labs</h1>
                             <p class="text-black/70 jobRole">UI/UX Engineer</p>
@@ -231,11 +235,11 @@
                             <div class="flex gap-2">
                                 <div>
                                     <button
-                                        class="intSelectBtn btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>
+                                        class="intSelectBtn btn btn-active transition active:scale-95 text-green-500 border-2 border-green-500">INTERVIEW</button>
                                 </div>
                                 <div>
                                     <button
-                                        class="rejectMarkBtn btn btn-active text-red-500 border-2 border-red-500">REJECTED</button>
+                                        class="rejectMarkBtn btn btn-active transition active:scale-95 text-red-500 border-2 border-red-500">REJECTED</button>
                                 </div>
                             </div>
                         </div>
@@ -247,7 +251,8 @@
 
                 <!-- sixthJob -->
                 <div>
-                    <div class="jobCard flex justify-between p-4 rounded hover:bg-gray-200">
+                    <div
+                        class="jobCard flex flex-col sm:flex-row sm:justify-between gap-4 p-4 rounded hover:bg-gray-200">
                         <div class="space-y-5 ">
                             <h1 class="jobTitle font-bold mt-5">MegaCorp Solutions</h1>
                             <p class="text-black/70 jobRole">JavaScript Developer</p>
@@ -263,11 +268,11 @@
                             <div class="flex gap-2">
                                 <div>
                                     <button
-                                        class="intSelectBtn btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>
+                                        class="intSelectBtn btn btn-active transition active:scale-95 text-green-500 border-2 border-green-500">INTERVIEW</button>
                                 </div>
                                 <div>
                                     <button
-                                        class="rejectMarkBtn btn btn-active text-red-500 border-2 border-red-500">REJECTED</button>
+                                        class="rejectMarkBtn btn btn-active transition active:scale-95 text-red-500 border-2 border-red-500">REJECTED</button>
                                 </div>
                             </div>
                         </div>
@@ -279,7 +284,8 @@
 
                 <!-- seventhJob -->
                 <div>
-                    <div class="jobCard flex justify-between p-4 rounded hover:bg-gray-200">
+                    <div
+                        class="jobCard flex flex-col sm:flex-row sm:justify-between gap-4 p-4 rounded hover:bg-gray-200">
                         <div class="space-y-5 ">
                             <h1 class="jobTitle font-bold mt-5">StartupXYZ</h1>
                             <p class="text-black/70 jobRole">Full Stack Engineer</p>
@@ -294,11 +300,11 @@
                             <div class="flex gap-2">
                                 <div>
                                     <button
-                                        class="intSelectBtn btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>
+                                        class="intSelectBtn btn btn-active transition active:scale-95 text-green-500 border-2 border-green-500">INTERVIEW</button>
                                 </div>
                                 <div>
                                     <button
-                                        class="rejectMarkBtn btn btn-active text-red-500 border-2 border-red-500">REJECTED</button>
+                                        class="rejectMarkBtn btn btn-active transition active:scale-95 text-red-500 border-2 border-red-500">REJECTED</button>
                                 </div>
                             </div>
                         </div>
@@ -310,7 +316,8 @@
 
                 <!-- eighthJob -->
                 <div>
-                    <div class="jobCard flex justify-between p-4 rounded hover:bg-gray-200">
+                    <div
+                        class="jobCard flex flex-col sm:flex-row sm:justify-between gap-4 p-4 rounded hover:bg-gray-200">
                         <div class="space-y-5 ">
                             <h1 class="jobTitle font-bold mt-5">TechCorp Industries</h1>
                             <p class="text-black/70 jobRole">Senior Frontend Developer</p>
@@ -326,11 +333,11 @@
                             <div class="flex gap-2">
                                 <div>
                                     <button
-                                        class="intSelectBtn btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>
+                                        class="intSelectBtn btn btn-active transition active:scale-95 text-green-500 border-2 border-green-500">INTERVIEW</button>
                                 </div>
                                 <div>
                                     <button
-                                        class="rejectMarkBtn btn btn-active text-red-500 border-2 border-red-500">REJECTED</button>
+                                        class="rejectMarkBtn btn btn-active transition active:scale-95 text-red-500 border-2 border-red-500">REJECTED</button>
                                 </div>
                             </div>
                         </div>

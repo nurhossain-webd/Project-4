@@ -183,8 +183,8 @@ function renderaddInterviewedJobs() {
             <p class="text-black/70 jobDescription">${interviewedJob.jobDescription}</p>
 
             <div class="flex gap-2">
-              <button class="intSelectBtn btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>
-              <button class="rejectMarkBtn btn btn-active text-red-500 border-2 border-red-500">REJECTED</button>
+              <button class="intSelectBtn btn btn-active transition active:scale-95 text-green-500 border-2 border-green-500">INTERVIEW</button>
+              <button class="rejectMarkBtn btn btn-active transition active:scale-95 text-red-500 border-2 border-red-500">REJECTED</button>
             </div>
           </div>
           <div>
@@ -225,8 +225,8 @@ function renderaddRejectedJobs() {
             <p class="text-black/70 jobDescription">${rejectedJob.jobDescription}</p>
 
             <div class="flex gap-2">
-              <button class="intSelectBtn btn btn-active text-green-500 border-2 border-green-500">INTERVIEW</button>
-              <button class="rejectMarkBtn btn btn-active text-red-500 border-2 border-red-500">REJECTED</button>
+              <button class="intSelectBtn btn btn-active transition active:scale-95 text-green-500 border-2 border-green-500">INTERVIEW</button>
+              <button class="rejectMarkBtn btn btn-active transition active:scale-95 text-red-500 border-2 border-red-500">REJECTED</button>
             </div>
           </div>
           <div>
