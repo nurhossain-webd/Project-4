@@ -93,7 +93,11 @@ document.querySelector('main').addEventListener('click', function (event) {
         const statusBtn = jobCard.querySelector('.statusBtn ').innerText;
         const jobDescription = jobCard.querySelector('.jobDescription ').innerText;
 
-        jobCard.querySelector('.statusBtn ').innerText = 'INTERVIEW'
+        jobCard.querySelector('.statusBtn').innerHTML = `
+  <button class="btn btn-active text-green-500 border-2 border-green-500" disabled>
+    INTERVIEW
+  </button>
+`;
         const cardInfo = {
             jobTitle,
             jobRole,
@@ -117,13 +121,17 @@ document.querySelector('main').addEventListener('click', function (event) {
     }
     if (event.target.classList.contains('rejectMarkBtn')) {
         const jobCard = event.target.parentNode.parentNode.parentNode.parentNode.parentNode;
-        const jobTitle = jobCard.querySelector('.jobTitle ').innerText;
-        const jobRole = jobCard.querySelector('.jobRole ').innerText;
-        const jobType = jobCard.querySelector('.jobType ').innerText;
-        const statusBtn = jobCard.querySelector('.statusBtn ').innerText;
+        const jobTitle = jobCard.querySelector('.jobTitle').innerText;
+        const jobRole = jobCard.querySelector('.jobRole').innerText;
+        const jobType = jobCard.querySelector('.jobType').innerText;
+        const statusBtn = jobCard.querySelector('.statusBtn').innerText;
         const jobDescription = jobCard.querySelector('.jobDescription ').innerText;
 
-        jobCard.querySelector('.statusBtn ').innerText = 'REJECTED'
+        jobCard.querySelector('.statusBtn').innerHTML = `
+  <button class="btn btn-active text-red-500 border-2 border-red-500" disabled>
+    REJECTED
+  </button>
+`;
         const cardInfo = {
             jobTitle,
             jobRole,
@@ -167,7 +175,9 @@ function renderaddInterviewedJobs() {
             <p class="text-black/70 jobType">${interviewedJob.jobType}</p>
 
             <div class="statusBtn">
-              <button class="btn btn-active" disabled>${interviewedJob.statusBtn}</button>
+              <button class="btn btn-active text-green-500 border-2 border-green-500" disabled>
+  ${interviewedJob.statusBtn}
+</button>
             </div>
 
             <p class="text-black/70 jobDescription">${interviewedJob.jobDescription}</p>
@@ -207,7 +217,9 @@ function renderaddRejectedJobs() {
             <p class="text-black/70 jobType">${rejectedJob.jobType}</p>
 
             <div class="statusBtn">
-              <button class="btn btn-active" disabled>${rejectedJob.statusBtn}</button>
+             <button class="btn btn-active text-red-500 border-2 border-red-500" disabled>
+  ${rejectedJob.statusBtn}
+</button>
             </div>
 
             <p class="text-black/70 jobDescription">${rejectedJob.jobDescription}</p>
